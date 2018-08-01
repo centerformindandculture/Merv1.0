@@ -1,8 +1,21 @@
 library(ggplot2)
 library(tidyverse)
 
-printFigure8PlotAndGetData <- function() {
-	data = read.csv("fig8onlyDS.csv", header=T)
+printFigure1PlotAndGetData <- function() {
+	data = read.csv("fig1DS.csv", header=T)
+	plotToReturn = ggplot(subset(data, Type.of.Incident == "Shooting Victim"), aes(x=Year, y=Number.Of.Incidents, fill=Group.Id, group=Group.Id))+
+	geom_bar(stat="identity", position=position_dodge())+
+	ylab("Number of Shooting Incidents")+
+	guides(fill=guide_legend(title="Group"))+
+	ggtitle("Periods of Mutually Escalating Anxiety Between Religious Groups in Northern Ireland: 1973-2001") + 
+	theme(plot.title = element_text(hjust = 0.5))+
+	xlim(1973, 2001)	
+	print(plotToReturn)
+	return(data)
+}
+
+printFigure9PlotAndGetData <- function() {
+	data = read.csv("fig9DS.csv", header=T)
 	plotToReturn = 
 	ggplot(data, aes(x=Length, y=Score, group=Condition, color=str_wrap(Condition, 60)))+
 	geom_point()+
@@ -16,8 +29,8 @@ printFigure8PlotAndGetData <- function() {
 	return(data)
 }
 
-printFigure3PlotAndGetData <- function() {
-	data = read.csv("fig3onlyDS.csv", header=T)
+printFigure4PlotAndGetData <- function() {
+	data = read.csv("fig4.csv", header=T)
 	plotToReturn = 
 	ggplot(data, aes(x=Time, y=Value, fill=GroupId))+
 	geom_bar(stat="identity")+
@@ -29,8 +42,8 @@ printFigure3PlotAndGetData <- function() {
 	return(data)
 }
 
-printFigure7PlotAndGetData <- function() {
-	data = read.csv("fig7onlyDS.csv", header=T)
+printFigure8PlotAndGetData <- function() {
+	data = read.csv("fig8DS.csv", header=T)
 	data$count.as.prct = data$Count / sum(data$Count)
 	data$count.as.prct = data$count.as.prct*100
 	plotToReturn = 
@@ -52,12 +65,15 @@ getParamSweepData <- function() {
 
 paramSweepData = getParamSweepData()
 
-# note the command below will also print Fig 3
-dataForFig3 = printFigure3PlotAndGetData()
+# note the command below will also print Fig 1
+dataForFig1 = printFigure1PlotAndGetData()
 
-# note the command below will also print Fig 7
-dataForFig7 = printFigure7PlotAndGetData()
+# note the command below will also print Fig 4
+dataForFig4 = printFigure4PlotAndGetData()
 
 # note the command below will also print Fig 8
 dataForFig8 = printFigure8PlotAndGetData()
+
+# note the command below will also print Fig 9
+dataForFig9 = printFigure9PlotAndGetData()
 
