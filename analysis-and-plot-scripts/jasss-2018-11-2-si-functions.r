@@ -30,7 +30,7 @@ printFigure9PlotAndGetData <- function() {
 }
 
 printFigure4PlotAndGetData <- function() {
-	data = read.csv("fig4.csv", header=T)
+	data = read.csv("fig4DS.csv", header=T)
 	plotToReturn = 
 	ggplot(data, aes(x=Time, y=Value, fill=GroupId))+
 	geom_bar(stat="identity")+
