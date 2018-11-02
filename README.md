@@ -1,5 +1,5 @@
 # Merv1.0
-Supplementary Information for the Generative Model of the Mutual Escalation of Anxiety Between Religious Groups.
+Supplementary Information for the Generative Model of the Mutual Escalation of Anxiety Between Religious Groups published in Journal of Artificial Societies and Social Simulation (JASSS) at: http://jasss.soc.surrey.ac.uk/21/4/7.html
 
 /bin directory contains the AnyLogic .alp file to run the simulation. A free personal use / trial version of AnyLogic can be downloaded at: https://www.anylogic.com/downloads/personal-learning-edition-download/
 
